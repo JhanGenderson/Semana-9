@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import InputTareas from "./Components/InputTareas"
+import ListaTarea from "./Components/ListaTarea"
 
-function App() {
+export default function App() {
+  const[tareas, setTareas] = useState([])
+
+  const[tarea, setTarea] = useState("")
+
+  const anadirTarea = (nuevaTarea) => {
+    setTareas()
+  }
+
+  const manejarTarea = (tarea) => {
+    setTarea(tarea)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Todo - List</h1>
+      <InputTareas tarea={tarea} manejarTarea={manejarTarea}/>
+      <ListaTarea/>
     </div>
-  );
+  )
 }
 
-export default App;
