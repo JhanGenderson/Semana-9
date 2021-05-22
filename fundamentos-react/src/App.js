@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
+import Parrafo from './components/Parrafo'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hola React!!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    // useState
+    // const[miestado, funcEstado] = useState(estado_inicial)
+
+    const [estado, setEstado] = useState(0)
+
+    const incrementar= () =>{
+        setEstado(estado + 1)
+    }
+
+    let miTexto = "The Trooper"
+
+    return(
+        <div>
+            <h1>
+                Hola React!! otra vez
+            </h1>
+            <p>
+                Contador: {estado}
+            </p>
+            <button onClick={incrementar}>
+                Incrementar
+            </button>
+            <hr />
+            <Parrafo texto="Fear of the Dark..."></Parrafo>
+            <Parrafo texto={miTexto} banda="Iron Maiden"/>
+        </div>
+    )
 }
 
 export default App;
